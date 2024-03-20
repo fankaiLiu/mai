@@ -1,0 +1,33 @@
+[workspace]
+# `members` 数组定义了工作空间中包含的成员，这些成员被 Cargo 作为本地路径处理
+# 在这里，成员 "bin" 表示工作空间会包含位于 "bin" 目录下的包
+members = [
+  "bin", "config",
+]
+# 关于更多键和它们的定义，请参见 https://doc.rust-lang.org/cargo/reference/manifest.html
+[profile.release]
+# `codegen-units` 设置编译时使用的代码生成单元数量，较少的单元可以优化最终生成的代码性能，但可能会增加编译时间
+# 在这里设置为 1，意味着编译器会用更长的编译时间换取可能的运行时性能提升
+codegen-units = 1 
+# `debug` 设置是否在编译时包含调试信息，这里设置为 false，意味着在发布版本中不包含调试信息
+debug = false 
+# `lto` 表示链接时优化（Link Time Optimization），当设置为 true 时，会在链接时进行代码优化，可以提高程序的运行效率，减小二进制文件的大小
+lto = true 
+# `opt-level` 设置编译器的优化级别，"z" 是专门优化编译后代码的大小，这可能会牺牲一些运行时性能
+opt-level = "z" # 为了大小进行优化。
+# `panic` 设置当程序出现 panic 时的行为，这里设置为 'abort'，表示当 panic 发生时，程序会立即终止，而不会展开 panic 且不会调用栈展开(unwind)。
+panic = 'abort' 
+# `strip` 注释掉了，当它被设置时，可以指定编译后的二进制文件中是否包含符号信息
+# 例如 "symbols" 会剥离调试符号信息，而 none(false) 表示不剥离，symbols(true) 表示剥离
+# strip = "symbols" # none(false) 不剥离符号信息，symbols(true) 剥离符号信息。
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["fankai Liu <liufankai137@outlook.com>"]
+description = "mai"
+
+[workspace.dependencies]
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+salvo = {git="https://github.com/salvo-rs/salvo",features = ["oapi","jwt-auth","cors","anyhow"]}
