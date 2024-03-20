@@ -1,0 +1,11 @@
+/target
+# /data/_web
+*.http
+.git
+.vscode
+/tests
+.env
+/config/config.toml
+/config/cert
+*.exe
+/test
