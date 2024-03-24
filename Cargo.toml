@@ -1,4 +1,6 @@
 [workspace]
+#解析器（resolver 2）
+resolver = "2"
 # `members` 数组定义了工作空间中包含的成员，这些成员被 Cargo 作为本地路径处理
 # 在这里，成员 "bin" 表示工作空间会包含位于 "bin" 目录下的包
 members = [
@@ -20,7 +22,6 @@ panic = 'abort'
 # `strip` 注释掉了，当它被设置时，可以指定编译后的二进制文件中是否包含符号信息
 # 例如 "symbols" 会剥离调试符号信息，而 none(false) 表示不剥离，symbols(true) 表示剥离
 # strip = "symbols" # none(false) 不剥离符号信息，symbols(true) 剥离符号信息。
-
 [workspace.package]
 version = "0.1.0"
 edition = "2021"
