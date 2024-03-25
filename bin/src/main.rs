@@ -1,3 +1,5 @@
+use config::CFG;
+
 fn main() {
-    println!("Hello, world!");
+    println!("{:?}",&CFG.server.name);
 }

@@ -8,3 +8,6 @@ description.workspace = true
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+serde = {workspace = true}
+once_cell = {workspace = true}
+serde_yaml = {workspace = true} 
