@@ -30,7 +30,9 @@ description = "mai"
 
 [workspace.dependencies]
 tokio = { version = "1", features = ["full"] }
-salvo = {git="https://github.com/salvo-rs/salvo",features = ["oapi","jwt-auth","cors","anyhow"]}
+salvo = {git="https://github.com/salvo-rs/salvo",features = ["anyhow", "logging", "cors", "oapi", "jwt-auth", "rustls", "catch-panic", "cookie", "serve-static", "test"]}
 serde = { version = "1", features = ["derive"] }
 serde_yaml = "0.9.31"
 once_cell = "1.19.0"
+clia-tracing-config = "0.2.7"
+tracing = "0.1.40"
